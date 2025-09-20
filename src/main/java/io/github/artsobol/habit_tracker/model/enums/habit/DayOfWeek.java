@@ -1,4 +1,4 @@
-package model.enums.habit;
+package io.github.artsobol.habit_tracker.model.enums.habit;
 
 public enum DayOfWeek {
     SUNDAY,

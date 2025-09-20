@@ -1,6 +1,6 @@
-package repository;
+package io.github.artsobol.habit_tracker.repository;
 
-import model.entity.Habit;
+import io.github.artsobol.habit_tracker.model.entity.Habit;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface HabitRepository extends JpaRepository<Habit, Long> {

@@ -1,11 +1,14 @@
-package service.impl;
+package io.github.artsobol.habit_tracker.service.impl;
 
-import model.entity.Habit;
-import model.enums.habit.HabitStatus;
+import io.github.artsobol.habit_tracker.exception.HabitNotFoundException;
+import io.github.artsobol.habit_tracker.model.dto.HabitCreateDto;
+import io.github.artsobol.habit_tracker.model.dto.mapping.HabitMapper;
+import io.github.artsobol.habit_tracker.model.entity.Habit;
+import io.github.artsobol.habit_tracker.model.enums.habit.HabitStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import repository.HabitRepository;
-import service.HabitService;
+import io.github.artsobol.habit_tracker.repository.HabitRepository;
+import io.github.artsobol.habit_tracker.service.HabitService;
 
 import java.util.List;
 
@@ -14,9 +17,16 @@ import java.util.List;
 public class HabitServiceImpl implements HabitService {
 
     private final HabitRepository habitRepository;
+    private final HabitMapper habitMapper;
 
-    public HabitServiceImpl(HabitRepository habitRepository) {
+    public HabitServiceImpl(HabitRepository habitRepository, HabitMapper habitMapper) {
         this.habitRepository = habitRepository;
+        this.habitMapper = habitMapper;
+    }
+
+    public Habit createHabit(HabitCreateDto habit) {
+        Habit entity = habitMapper.toEntity(habit);
+        return habitRepository.save(entity);
     }
 
     public List<Habit> getHabits() {
@@ -24,7 +34,7 @@ public class HabitServiceImpl implements HabitService {
     }
 
     public Habit getHabitById(Long id) {
-        return habitRepository.findById(id).orElse(null);
+        return habitRepository.findById(id).orElseThrow(() -> new HabitNotFoundException(id));
     }
 
     // TODO: Refactor this method to DTO
@@ -63,20 +73,17 @@ public class HabitServiceImpl implements HabitService {
 
     @Override
     public Habit archiveHabit(Long id) {
-        Habit habit = getHabitById(id);
-        habit.setStatus(HabitStatus.ARCHIVE);
-        return habitRepository.save(habit);
+        return changeStatusHabit(id, HabitStatus.ARCHIVE);
     }
 
     @Override
     public Habit restoreHabit(Long id) {
+        return changeStatusHabit(id, HabitStatus.ACTIVE);
+    }
+
+    protected Habit changeStatusHabit(Long id, HabitStatus status) {
         Habit habit = getHabitById(id);
-        habit.setStatus(HabitStatus.ACTIVE);
+        habit.setStatus(status);
         return habitRepository.save(habit);
     }
-
-    public Habit createHabit(Habit habit) {
-        return habitRepository.save(habit);
-    }
-
 }

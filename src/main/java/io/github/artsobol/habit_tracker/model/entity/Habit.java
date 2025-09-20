@@ -1,9 +1,11 @@
-package model.entity;
+package io.github.artsobol.habit_tracker.model.entity;
 
 import jakarta.persistence.*;
-import model.enums.habit.DayOfWeek;
-import model.enums.habit.HabitStatus;
-import model.enums.habit.ScheduleType;
+import io.github.artsobol.habit_tracker.model.enums.habit.DayOfWeek;
+import io.github.artsobol.habit_tracker.model.enums.habit.HabitStatus;
+import io.github.artsobol.habit_tracker.model.enums.habit.ScheduleType;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Null;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -19,6 +21,7 @@ public class Habit {
     private Long id;
 
     @Column(nullable = false, length = 100)
+    @NotNull
     private String title;
 
     @Column
@@ -35,6 +38,7 @@ public class Habit {
     // TODO: add validation for daysOfWeek when scheduleType is DAYS_OF_WEEK
     @ElementCollection(targetClass = DayOfWeek.class)
     @CollectionTable(name = "habit_days", joinColumns = @JoinColumn(name = "habit_id"))
+    @Column(name = "day", nullable = false, length = 9)
     @Enumerated(EnumType.STRING)
     private Set<DayOfWeek> daysOfWeek = new HashSet<>();
 
@@ -52,7 +56,7 @@ public class Habit {
     @Column(name = "end_date")
     private LocalDate endDate;
 
-    @Column(nullable = false, updatable = false, name = "created_at")
+    @Column(updatable = false, name = "created_at")
     private LocalDateTime createdAt;
 
     // TODO: add DB trigger to auto-update updated_at on UPDATE
@@ -60,6 +64,22 @@ public class Habit {
     private LocalDateTime updatedAt ;
 
     protected Habit() {}
+
+    @PrePersist
+    protected void onCreate() {
+        LocalDateTime now = LocalDateTime.now();
+        this.createdAt = now;
+        this.updatedAt = now;
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        this.updatedAt = LocalDateTime.now();
+    }
+
+    public Long getId() {
+        return id;
+    }
 
     public String getTitle() {
         return title;
