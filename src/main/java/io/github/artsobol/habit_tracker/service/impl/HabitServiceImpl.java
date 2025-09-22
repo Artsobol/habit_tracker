@@ -2,6 +2,7 @@ package io.github.artsobol.habit_tracker.service.impl;
 
 import io.github.artsobol.habit_tracker.exception.HabitNotFoundException;
 import io.github.artsobol.habit_tracker.model.dto.HabitCreateDto;
+import io.github.artsobol.habit_tracker.model.dto.HabitPatchDto;
 import io.github.artsobol.habit_tracker.model.dto.mapping.HabitMapper;
 import io.github.artsobol.habit_tracker.model.entity.Habit;
 import io.github.artsobol.habit_tracker.model.enums.habit.HabitStatus;
@@ -37,37 +38,10 @@ public class HabitServiceImpl implements HabitService {
         return habitRepository.findById(id).orElseThrow(() -> new HabitNotFoundException(id));
     }
 
-    // TODO: Refactor this method to DTO
     @Override
-    public Habit updateHabit(Long id, Habit updatedHabit) {
+    public Habit updateHabit(Long id, HabitPatchDto habitPatchDto) {
         Habit habit = getHabitById(id);
-        if (updatedHabit.getTitle() != null) {
-            habit.setTitle(updatedHabit.getTitle());
-        }
-        if (updatedHabit.getDescription() != null) {
-            habit.setDescription(updatedHabit.getDescription());
-        }
-        if (updatedHabit.getStatus() != null) {
-            habit.setStatus(updatedHabit.getStatus());
-        }
-        if (updatedHabit.getScheduleType() != null) {
-            habit.setScheduleType(updatedHabit.getScheduleType());
-        }
-        if (updatedHabit.getDaysOfWeek() != null) {
-            habit.setDaysOfWeek(updatedHabit.getDaysOfWeek());
-        }
-        if (updatedHabit.getTargetPerDay() != null) {
-            habit.setTargetPerDay(updatedHabit.getTargetPerDay());
-        }
-        if (updatedHabit.getTargetPerWeek() != null) {
-            habit.setTargetPerWeek(updatedHabit.getTargetPerWeek());
-        }
-        if (updatedHabit.getStartDate() != null) {
-            habit.setStartDate(updatedHabit.getStartDate());
-        }
-        if (updatedHabit.getEndDate() != null) {
-            habit.setEndDate(updatedHabit.getEndDate());
-        }
+        habitMapper.updateFromPatch(habitPatchDto, habit);
         return habitRepository.save(habit);
     }
 

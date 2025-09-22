@@ -5,7 +5,6 @@ import io.github.artsobol.habit_tracker.model.enums.habit.DayOfWeek;
 import io.github.artsobol.habit_tracker.model.enums.habit.HabitStatus;
 import io.github.artsobol.habit_tracker.model.enums.habit.ScheduleType;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Null;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -63,13 +62,17 @@ public class Habit {
     @Column(nullable = false, name = "updated_at")
     private LocalDateTime updatedAt ;
 
-    protected Habit() {}
+    public Habit() {}
 
     @PrePersist
     protected void onCreate() {
         LocalDateTime now = LocalDateTime.now();
         this.createdAt = now;
         this.updatedAt = now;
+
+        if (this.status == null) {
+            this.status = HabitStatus.ACTIVE;
+        }
     }
 
     @PreUpdate

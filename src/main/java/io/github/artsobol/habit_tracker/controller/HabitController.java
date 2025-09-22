@@ -1,6 +1,7 @@
 package io.github.artsobol.habit_tracker.controller;
 
 import io.github.artsobol.habit_tracker.model.dto.HabitCreateDto;
+import io.github.artsobol.habit_tracker.model.dto.HabitPatchDto;
 import io.github.artsobol.habit_tracker.model.dto.HabitResponseDto;
 import io.github.artsobol.habit_tracker.model.dto.mapping.HabitMapper;
 import io.github.artsobol.habit_tracker.model.entity.Habit;
@@ -35,8 +36,9 @@ public class HabitController {
     }
 
     @PostMapping
-    public ResponseEntity<HabitResponseDto> createHabit(@RequestBody @Valid HabitCreateDto habitDto) {
-        Habit saved = habitService.createHabit(habitDto);
+    public ResponseEntity<HabitResponseDto> createHabit(@RequestBody @Valid HabitCreateDto habitCreateDto)
+    {
+        Habit saved = habitService.createHabit(habitCreateDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(habitMapper.toResponseDto(saved));
     }
 
@@ -51,8 +53,9 @@ public class HabitController {
     }
 
     @PatchMapping("/{habitId}")
-    public ResponseEntity<Habit> updateHabit(@PathVariable Long habitId, @RequestBody Habit updatedHabit) {
-        return ResponseEntity.status(HttpStatus.OK).body(habitService.updateHabit(habitId, updatedHabit));
+    public ResponseEntity<HabitResponseDto> updateHabit(@PathVariable Long habitId, @RequestBody @Valid HabitPatchDto habitPatchDto) {
+        Habit updated = habitService.updateHabit(habitId, habitPatchDto);
+        return ResponseEntity.status(HttpStatus.OK).body(habitMapper.toResponseDto(updated));
     }
 
 }
