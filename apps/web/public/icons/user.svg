@@ -1,0 +1,25 @@
+<svg width="55" height="32" viewBox="0 0 55 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect y="10" width="4" height="22" fill="#212020"/>
+<rect width="4" height="7" fill="#212020"/>
+<rect x="11" width="4" height="7" transform="rotate(90 11 0)" fill="#212020"/>
+<rect x="8" y="28" width="4" height="4" transform="rotate(90 8 28)" fill="#212020"/>
+<rect width="4" height="22" transform="matrix(-1 0 0 1 55 10)" fill="#212020"/>
+<rect width="4" height="10" transform="matrix(-1 0 0 1 55 0)" fill="#212020"/>
+<rect width="4" height="7" transform="matrix(4.37114e-08 1 1 -4.37114e-08 44 0)" fill="#212020"/>
+<rect width="4" height="4" transform="matrix(4.37114e-08 1 1 -4.37114e-08 47 28)" fill="#212020"/>
+<rect x="22" y="28" width="4" height="4" fill="#212020"/>
+<rect x="30" y="28" width="4" height="4" fill="#212020"/>
+<rect x="18" y="22" width="4" height="4" fill="#212020"/>
+<rect x="22" y="18" width="4" height="4" fill="#212020"/>
+<rect x="18" y="14" width="4" height="4" fill="#212020"/>
+<rect x="16" y="10" width="4" height="4" fill="#212020"/>
+<rect x="18" y="4" width="4" height="4" fill="#212020"/>
+<rect x="34" y="6" width="4" height="4" fill="#212020"/>
+<rect x="36" y="10" width="4" height="4" fill="#212020"/>
+<rect x="34" y="14" width="4" height="4" fill="#212020"/>
+<rect x="22" y="2" width="4" height="4" fill="#212020"/>
+<rect x="26" width="4" height="4" fill="#212020"/>
+<rect x="30" y="2" width="4" height="4" fill="#212020"/>
+<rect x="30" y="18" width="4" height="4" fill="#212020"/>
+<rect x="34" y="22" width="4" height="4" fill="#212020"/>
+</svg>
