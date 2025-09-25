@@ -1,6 +1,3 @@
-create schema if not exists habit_tracker;
-set search_path = habit_tracker;
-
 drop table if exists habit;
 create table habit (
                        id BIGSERIAL PRIMARY KEY,
