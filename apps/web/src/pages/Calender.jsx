@@ -1,11 +1,12 @@
-const Calender = () => {
-  return (
-    <>
-      <h1>
-        это календарь
-      </h1>
-    </>
-  );
-};
+import CustomCalendar from "../components/CustomCalendar";
 
-export default Calender;
+export default function Calendar() {
+
+  return (
+    <div>
+      <CustomCalendar />
+    </div>
+      
+
+  );
+}

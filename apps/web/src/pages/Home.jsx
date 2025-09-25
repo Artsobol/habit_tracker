@@ -1,11 +1,13 @@
 import styled from "styled-components";
 import HabitsList from "../sections/HabitsList";
 import list from '../constants/HABITS_DATA.json';
+import DailyProgress from "../components/DailyProgress";
+import CustomCalendar from "../components/CustomCalendar";
 
 const Home = () => {
   return (
     <>
-      <div style={{ paddingBlock: "14px", marginInline: "14px" }}>
+      <div style={{ paddingBlock: "14px", marginInline: "14px", marginBottom: "14px" }}>
         <User href="/profile">
           <img
             src="/icons/user.svg"
@@ -18,7 +20,13 @@ const Home = () => {
           </h3>
         </User>
       </div>
+      <div>
+        <CustomCalendar />
+      </div>
 
+      <div style={{ marginInline: "31px", marginBottom: "25px", marginTop: "143px" }}>
+        <DailyProgress />
+      </div>
       <div style={{ marginInline: "23px" }}>
         <div style={{
           display: "flex",
@@ -36,6 +44,7 @@ const Home = () => {
             Смотреть все
           </SeeAllLink>
         </div>
+
         <HabitsList list={list} />
       </div>
     </>

@@ -35,6 +35,13 @@ h4 {
   --font-family: 'Roboto', sans-serif;
 }
 
+.p-gray {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 10px;
+  color: #cccaca;
+}
+
 /* Reset and base styles  */
 
 * {
