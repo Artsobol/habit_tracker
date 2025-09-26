@@ -1,7 +1,7 @@
 package io.github.artsobol.habit_tracker.service;
 
-import io.github.artsobol.habit_tracker.model.dto.HabitCreateDto;
-import io.github.artsobol.habit_tracker.model.dto.HabitPatchDto;
+import io.github.artsobol.habit_tracker.model.dto.habitDto.HabitCreateDto;
+import io.github.artsobol.habit_tracker.model.dto.habitDto.HabitPatchDto;
 import io.github.artsobol.habit_tracker.model.entity.Habit;
 
 import java.util.List;

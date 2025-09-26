@@ -1,6 +1,6 @@
-package io.github.artsobol.habit_tracker.model.dto.validator;
+package io.github.artsobol.habit_tracker.model.dto.habitDto.validator;
 
-import io.github.artsobol.habit_tracker.model.dto.HabitCreateDto;
+import io.github.artsobol.habit_tracker.model.dto.habitDto.HabitCreateDto;
 import io.github.artsobol.habit_tracker.model.enums.habit.ScheduleType;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;

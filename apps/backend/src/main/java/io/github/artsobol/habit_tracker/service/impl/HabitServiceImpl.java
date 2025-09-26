@@ -1,9 +1,9 @@
 package io.github.artsobol.habit_tracker.service.impl;
 
 import io.github.artsobol.habit_tracker.exception.HabitNotFoundException;
-import io.github.artsobol.habit_tracker.model.dto.HabitCreateDto;
-import io.github.artsobol.habit_tracker.model.dto.HabitPatchDto;
-import io.github.artsobol.habit_tracker.model.dto.mapping.HabitMapper;
+import io.github.artsobol.habit_tracker.model.dto.habitDto.HabitCreateDto;
+import io.github.artsobol.habit_tracker.model.dto.habitDto.HabitPatchDto;
+import io.github.artsobol.habit_tracker.model.dto.habitDto.mapping.HabitMapper;
 import io.github.artsobol.habit_tracker.model.entity.Habit;
 import io.github.artsobol.habit_tracker.model.enums.habit.HabitStatus;
 import org.springframework.stereotype.Service;

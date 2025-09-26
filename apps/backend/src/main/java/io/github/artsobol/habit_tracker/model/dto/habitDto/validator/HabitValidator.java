@@ -1,4 +1,4 @@
-package io.github.artsobol.habit_tracker.model.dto.validator;
+package io.github.artsobol.habit_tracker.model.dto.habitDto.validator;
 
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
