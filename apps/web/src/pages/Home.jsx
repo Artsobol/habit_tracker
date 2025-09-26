@@ -34,9 +34,9 @@ const Home = () => {
           justifyContent: "space-between",
           paddingBottom: "11px"
         }}>
-          <h3 className="h4" style={{ paddingLeft: "10px" }}>
+          <h2 className="h4" style={{ paddingLeft: "10px" }}>
             Привычки
-          </h3>
+          </h2>
           <SeeAllLink
             style={{ paddingRight: "12px" }}
             href="/"
