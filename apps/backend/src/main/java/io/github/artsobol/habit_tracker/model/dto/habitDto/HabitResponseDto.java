@@ -1,4 +1,4 @@
-package io.github.artsobol.habit_tracker.model.dto;
+package io.github.artsobol.habit_tracker.model.dto.habitDto;
 
 import io.github.artsobol.habit_tracker.model.enums.habit.DayOfWeek;
 import io.github.artsobol.habit_tracker.model.enums.habit.ScheduleType;

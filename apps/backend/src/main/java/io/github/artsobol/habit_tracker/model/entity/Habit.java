@@ -80,6 +80,10 @@ public class Habit {
         this.updatedAt = LocalDateTime.now();
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public Long getId() {
         return id;
     }

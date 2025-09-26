@@ -1,8 +1,8 @@
-package io.github.artsobol.habit_tracker.model.dto.mapping;
+package io.github.artsobol.habit_tracker.model.dto.habitDto.mapping;
 
-import io.github.artsobol.habit_tracker.model.dto.HabitCreateDto;
-import io.github.artsobol.habit_tracker.model.dto.HabitPatchDto;
-import io.github.artsobol.habit_tracker.model.dto.HabitResponseDto;
+import io.github.artsobol.habit_tracker.model.dto.habitDto.HabitCreateDto;
+import io.github.artsobol.habit_tracker.model.dto.habitDto.HabitPatchDto;
+import io.github.artsobol.habit_tracker.model.dto.habitDto.HabitResponseDto;
 import io.github.artsobol.habit_tracker.model.entity.Habit;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
