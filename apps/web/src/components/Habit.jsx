@@ -16,9 +16,9 @@ const Habit = (props) => {
         <h4>
           {title}
         </h4>
-        <HabitInfo>
+        <p className="p-gray" style={{ paddingTop: "7px" }}>
           {info}
-        </HabitInfo>
+        </p>
       </div>
       <Button $clicked={clicked} onClick={handleClick}>
         <img
@@ -36,7 +36,7 @@ const Button = styled.button`
   justify-content: flex-start;
   width: 32px;
 
-  background: "transparent";
+  background: transparent;
   cursor: pointer;
 
   img {
@@ -57,10 +57,6 @@ const HabitContainer = styled.div`
 `;
 
 const HabitInfo = styled.div`
-  font-family: var(--font-family);
-  font-weight: 400;
-  font-size: 10px;
-  color: var(--color-gray-1);
   padding-top: 7px;
 `;
 
