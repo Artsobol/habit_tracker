@@ -14,10 +14,10 @@ const navigationList = [
     title: 'add habit'
   },
   {
-    icon: '/icons/calender.svg',
-    iconActive: '/icons/calender-active.svg',
-    location: '/calender',
-    alt: 'calender'
+    icon: '/icons/calendar.svg',
+    iconActive: '/icons/calendar-active.svg',
+    location: '/calendar',
+    alt: 'calendar'
   }
 ];
 

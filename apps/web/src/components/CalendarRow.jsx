@@ -4,7 +4,7 @@ import styled from "styled-components";
 const weekdays = ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"];
 const today = new Date();
 
-const CustomCalendar = () => {
+const CalendarRow = () => {
   const [selectedDay, setSelectedDay] = useState(today.getDate());
   const daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
   const days = Array.from({ length: daysInMonth }, (_, i) => i + 1);
@@ -178,4 +178,4 @@ const FooterDay = styled.div`
 `;
 
 
-export default CustomCalendar;
+export default CalendarRow;
