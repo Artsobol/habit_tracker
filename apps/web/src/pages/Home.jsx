@@ -2,7 +2,7 @@ import styled from "styled-components";
 import HabitsList from "../sections/HabitsList";
 import list from '../constants/HABITS_DATA.json';
 import DailyProgress from "../components/DailyProgress";
-import CustomCalendar from "../components/CustomCalendar";
+import CalendarRow from "../components/CalendarRow.jsx";
 
 const Home = () => {
   return (
@@ -21,7 +21,7 @@ const Home = () => {
         </User>
       </div>
       <div>
-        <CustomCalendar />
+        <CalendarRow />
       </div>
 
       <div style={{ marginInline: "31px", marginBottom: "25px", marginTop: "143px" }}>
@@ -45,7 +45,7 @@ const Home = () => {
           </SeeAllLink>
         </div>
 
-        <HabitsList list={list} />
+        <HabitsList list={list}/>
       </div>
     </>
   );

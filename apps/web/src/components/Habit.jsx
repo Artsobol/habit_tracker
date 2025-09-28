@@ -2,7 +2,12 @@ import { useState } from "react";
 import styled from "styled-components";
 
 const Habit = (props) => {
-  const { title, info, notifications, isDone = false } = props;
+  const {
+    title,
+    info,
+    inCalendar = false,
+    isDone = false
+  } = props;
 
   const [clicked, setClicked] = useState(isDone);
 
@@ -11,8 +16,10 @@ const Habit = (props) => {
   };
 
   return (
+    <>
     <HabitContainer>
-      <div style={{ display: "flex", flexDirection: "column" }}>
+      <div style={{ display: "flex", flexDirection: "column", paddingBlock: "11px",
+        paddingInline: "7px"}}>
         <h4>
           {title}
         </h4>
@@ -20,13 +27,23 @@ const Habit = (props) => {
           {info}
         </p>
       </div>
-      <Button $clicked={clicked} onClick={handleClick}>
-        <img
-          src={clicked ? "/icons/button-icon-done.svg" : "/icons/button-icon.svg"}
-          alt="habit icon"
-        />
-      </Button>
+      {!inCalendar && (
+        <Button $clicked={clicked} onClick={handleClick} style={{marginRight:"7px"}}>
+          <img
+            src={clicked ? "/icons/button-icon-done.svg" : "/icons/button-icon.svg"}
+            alt="habit icon"
+          />
+        </Button>
+      )}
+      {inCalendar && (
+        <CountContainer>
+          3
+        </CountContainer>
+      )}
+
     </HabitContainer>
+
+    </>
   );
 };
 
@@ -51,13 +68,16 @@ const HabitContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding-block: 11px;
-  padding-inline: 7px;
+  
   border: 4px solid #ededed;
 `;
 
-const HabitInfo = styled.div`
-  padding-top: 7px;
-`;
+const CountContainer = styled.span`
+  font-weight: 900;
+  font-size: 20px;
+  margin-right: 3px;
+  
+  margin-top: auto;
+`
 
 export default Habit;

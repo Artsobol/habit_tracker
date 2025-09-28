@@ -1,7 +1,12 @@
 import styled from "styled-components";
 import Habit from "../components/Habit";
 
-const HabitsList = ({ list }) => {
+const HabitsList = (props) => {
+  const {
+    list,
+    inCalendar
+  } = props;
+
   return (
     <Container>
       {list.map((item, index) => (
@@ -10,6 +15,7 @@ const HabitsList = ({ list }) => {
           title={item.title}
           info={item.info}
           isDone={item.isDone}
+          inCalendar={inCalendar}
         />
       ))}
     </Container>

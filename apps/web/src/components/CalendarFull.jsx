@@ -1,20 +1,11 @@
-import { useState } from "react";
 import Calendar from "react-calendar";
 import styled from "styled-components";
 
-const CalendarPage = () => {
-  const [date, setDate] = useState(new Date());
-
-  const currentMonth = capitalize(
-    date.toLocaleDateString("ru-RU", {
-      month: "long",
-    })
-  );
-
-  function capitalize(str) {
-    if (!str) return "";
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  }
+const CalendarFull = (props) => {
+  const {
+    setDate,
+    date,
+  } = props;
 
   function getTileClass({ date: tileDate, view }) {
     if (view === "month") {
@@ -30,47 +21,21 @@ const CalendarPage = () => {
     return null;
   }
 
-  return (
-    <CalendarContainer>
-      <CalendarHeader>
-        <h2 className="h3" style={{ paddingLeft: "48px" }}>Календарь</h2>
-        <MonthButton>{currentMonth}</MonthButton>
-      </CalendarHeader>
-      <StyledCalendarWrapper>
-        <Calendar
-          onChange={setDate}
-          value={date}
-          navigationLabel={null}
-          nextLabel={null}
-          next2Label={null}
-          prevLabel={null}
-          prev2Label={null}
-          tileClassName={getTileClass}
-        />
-      </StyledCalendarWrapper>
-    </CalendarContainer>
-  );
-};
-
-const MonthButton = styled.button`
-  font-weight: 500;
-  font-size: 16px;
-  text-align: right;
-  color: #cccaca;
-`;
-
-const CalendarContainer = styled.div`
-  margin-top: 23px;
-  margin-bottom: 34px;
-  padding-inline: 26px;
-`;
-
-const CalendarHeader = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-bottom: 12px;
-`;
+  return(
+    <StyledCalendarWrapper>
+      <Calendar
+        onChange={setDate}
+        value={date}
+        navigationLabel={null}
+        nextLabel={null}
+        next2Label={null}
+        prevLabel={null}
+        prev2Label={null}
+        tileClassName={getTileClass}
+      />
+    </StyledCalendarWrapper>
+  )
+}
 
 const StyledCalendarWrapper = styled.div`
   .react-calendar {
@@ -125,4 +90,4 @@ const StyledCalendarWrapper = styled.div`
   }
 `;
 
-export default CalendarPage;
+export default CalendarFull;
