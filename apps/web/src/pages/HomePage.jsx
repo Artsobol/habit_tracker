@@ -4,7 +4,7 @@ import list from '../constants/HABITS_DATA.json';
 import DailyProgress from "../components/DailyProgress";
 import CalendarRow from "../components/CalendarRow.jsx";
 
-const Home = () => {
+const HomePage = () => {
   return (
     <>
       <div style={{ paddingBlock: "14px", marginInline: "14px", marginBottom: "14px" }}>
@@ -39,7 +39,7 @@ const Home = () => {
           </h2>
           <SeeAllLink
             style={{ paddingRight: "12px" }}
-            href="/"
+            href="/calendar"
           >
             Смотреть все
           </SeeAllLink>
@@ -64,4 +64,4 @@ const User = styled.a`
   gap: 5px;
 `;
 
-export default Home;
+export default HomePage;
